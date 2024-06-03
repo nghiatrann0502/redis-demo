@@ -29,6 +29,10 @@ function buildApp() {
     app.use((0, express_1.urlencoded)({ extended: true }));
     app.use((0, express_1.json)());
     app.set("trust proxy", 1);
+    app.use("/ping", (_, res) => {
+        console.log(process.env);
+        res.status(200).json({ message: "pong" });
+    });
     return app;
 }
 exports.default = buildApp();

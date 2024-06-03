@@ -1,8 +1,9 @@
 package httphandler
 
 import (
-	"github.com/nghiatrann0502/demo-redis/go/common"
 	"net/http"
+
+	"github.com/nghiatrann0502/demo-redis/go/common"
 )
 
 func (h *handler) CreateHandler(w http.ResponseWriter, r *http.Request) {
@@ -17,7 +18,6 @@ func (h *handler) CreateHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	shortUrl, err := h.biz.CreateUrlShorten(r.Context(), body.Url)
-
 	if err != nil {
 		common.WriteError(w, http.StatusBadRequest, err.Error())
 		return

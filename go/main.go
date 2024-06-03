@@ -1,17 +1,17 @@
 package main
 
 import (
+	"log"
+	"net/http"
+	"os"
+
 	"github.com/nghiatrann0502/demo-redis/go/modules/url/business"
 	"github.com/nghiatrann0502/demo-redis/go/modules/url/repository/mysql"
 	redis2 "github.com/nghiatrann0502/demo-redis/go/modules/url/repository/redis"
 	httphandler "github.com/nghiatrann0502/demo-redis/go/modules/url/transport/http"
-	"log"
-	"net/http"
 )
 
-var (
-	httpAddr = ":8080"
-)
+var httpAddr = os.Getenv("PORT")
 
 func main() {
 	mux := http.NewServeMux()
